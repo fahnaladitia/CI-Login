@@ -36,6 +36,11 @@
        My Profile
       </a>
       <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="<?= base_url("user/changepassword") ?>">
+       <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
+       Change Password
+      </a>
+      <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="<?= base_url(
       	"auth/logout"
       ) ?>" data-toggle="modal" data-target="#logoutModal">
