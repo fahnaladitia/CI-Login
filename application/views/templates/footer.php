@@ -53,6 +53,50 @@
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url("assets/") ?>js/sb-admin-2.min.js"></script>
 
+<script>
+$('.custom-file-input').on('change', function() {
+ let fileName = $(this).val().split('\\').pop();
+ $(this).next('.custom-file-label').addClass("selected").html(fileName);
+})
+
+
+
+$('.form-check-input').on('click', function() {
+ const menuId = $(this).data('menu');
+ const roleId = $(this).data('role');
+
+ $.ajax({
+  url: "<?= base_url("admin/changeaccess") ?>",
+  type: 'post',
+  data: {
+   menuId: menuId,
+   roleId: roleId
+  },
+  success: function() {
+   document.location.href = "<?= base_url("admin/roleaccess/") ?>" + roleId;
+  }
+ })
+})
+$('.createMenu').on('click', function() {
+ $('#newMenuModalLabel').html('Add New Menu');
+ $('.modal-footer button').html('Add');
+})
+
+$('.editMenu').on('click', function() {
+ $('#newMenuModalLabel').html('Edit Menu');
+ $('.modal-footer button').html('Edit');
+})
+$('.createSubMenu').on('click', function() {
+ $('#newSubMenuModalLabel').html('Add New SubMenu');
+ $('.modal-footer button').html('Add');
+})
+
+$('.editSubMenu').on('click', function() {
+ $('#newSubMenuModalLabel').html('Edit SubMenu');
+ $('.modal-footer button').html('Edit');
+})
+</script>
+
 </body>
 
 </html>

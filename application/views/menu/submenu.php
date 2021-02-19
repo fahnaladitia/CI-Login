@@ -16,7 +16,8 @@
    <?= $this->session->flashdata("new"),
    	$this->session->unset_userdata("new") ?>
 
-   <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#newSubMenuModal">Add New SubMenu</a>
+   <a href="" class="btn btn-primary mb-3 createSubMenu" data-toggle="modal" data-target="#newSubMenuModal">Add New
+    SubMenu</a>
    <table class="table table-hover">
     <thead>
      <tr>
@@ -24,6 +25,7 @@
       <th scope="col">Title</th>
       <th scope="col">Menu</th>
       <th scope="col">Url</th>
+      <th scope="col">Icon</th>
       <th scope="col">Active</th>
       <th scope="col">Action</th>
      </tr>
@@ -36,11 +38,12 @@
       <td><?= $sm["title"] ?></td>
       <td><?= $sm["menu"] ?></td>
       <td><?= $sm["url"] ?></td>
-      <td><?= $sm["icon"] ?></td>
+      <td><i class="<?= $sm["icon"] ?>"></i></td>
       <td><?= $sm["is_actived"] ?></td>
       <td>
-       <a href="" class="badge badge-success">Edit</a>
-       <a href="" class="badge badge-danger">Delete</a>
+       <a href="" class="badge badge-success editSubMenu" data-toggle="modal" data-target="#newSubMenuModal">Edit</a>
+       <a href="<?= base_url("menu/deleteSubMenu/") .
+       	$sm["id"] ?>" class="badge badge-danger">Delete</a>
       </td>
      </tr>
      <?php $i++; ?>
